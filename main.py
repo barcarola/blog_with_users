@@ -25,7 +25,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
-db.create_all()
 # Base = declarative_base()
 
 @login_manager.user_loader
@@ -66,7 +65,7 @@ class Comments(db.Model):
 
 
 
-db.create_all()
+# db.create_all()
 
 @app.route('/')
 def get_all_posts():
