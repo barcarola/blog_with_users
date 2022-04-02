@@ -57,13 +57,11 @@ class BlogPost(db.Model):
 class Comments(db.Model):
     __tablename__= "comments"
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String, nullable=False)
+    text = db.Column(db.String(1000), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('Users_table.id'), nullable=False)
     blog_id = db.Column(db.Integer, db.ForeignKey('blog_posts.id'), nullable=False)
     user = db.relationship("User", back_populates='comments')
     posts = db.relationship("BlogPost", back_populates='comments')
-
-
 
 # db.create_all()
 
